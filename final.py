@@ -57,16 +57,17 @@ def mainloop(v):
 
             loginpg.destroy()
             mainloop(10)
-
-        p3=PhotoImage(file ='homeb.png').subsample(3,3)
+        
+        file2 = 'homeb.png'
+        p3=PhotoImage(file = file2).subsample(3,3)
         Button(loginpg,image=p3,relief=SOLID,command=call).place(x=1200,y=20)
 
         ## to check if the user has input the correct name and password, if not, access is denied
         
         def login():
-
+            msg = "Please complete the required field!"
             if username.get() == "" or password.get() == "":
-                messagebox.showinfo("MESSAGE","Please complete the required field!")
+                messagebox.showinfo("MESSAGE",msg)
 
             else:
                 cursor.execute("SELECT * FROM admin")
@@ -82,17 +83,18 @@ def mainloop(v):
                     messagebox.showinfo("MESSAGE","Invalid username or password")
                     
         ## to create labels
-
-        exp= Label(loginpg, text = "USERNAME:",fg='black',bg='white',font='arialblack 35 bold').place(x=320,y=250)            
+        
+        font1='arialblack 35 bold'
+        Label(loginpg, text = "USERNAME:",fg='black',bg='white',font=font1).place(x=320,y=250)            
         username = Entry(loginpg)
-        username.configure(fg='black',font='arialblack 20 bold',relief="solid")
+        username.configure(fg='black',font=font1,relief="solid")
         username.place(x=650,y=255,height=50,width=300)
 
-        exp= Label(loginpg, text = "PASSWORD:",fg='black',bg='white',font='arialblack 35 bold').place(x=320,y=340)    
+        Label(loginpg, text = "PASSWORD:",fg='black',bg='white',font=font1).place(x=320,y=340)    
         password = Entry(loginpg)
-        password.configure(fg='black',font='arialblack 20 bold',show="*",relief="solid")
+        password.configure(fg='black',font=font1,show="*",relief="solid")
         password.place(x=650,y=343,height=50,width=300)
-        submit=Button(loginpg,text="LOGIN",fg="black",bg="white",font=("times","24","bold"),relief="solid",command=login).place(x=580,y=430)
+        Button(loginpg,text="LOGIN",fg="black",bg="white",font=("times","24","bold"),relief="solid",command=login).place(x=580,y=430)
         loginpg.mainloop()
 
     ## main menu page
@@ -102,7 +104,8 @@ def mainloop(v):
         expmenu = Tk()
         expmenu.geometry("1300x650+0+0")
         expmenu.resizable(0,0)
-        p1=PhotoImage(file='get3.png')
+        file1='get3.png'
+        p1=PhotoImage(file=file1)
         Label(expmenu,image=p1).place(x=0,y=0)
 
         ## provides a logout button to go to the introduction page
@@ -114,12 +117,12 @@ def mainloop(v):
 
         ## to create buttons
 
-        addinc=Button(expmenu,text='Guide',bg='white',fg='black',font='arialblack 18 bold',relief="solid",command=lambda:mainloop(6)).place(x=100,y=250,height=50,width=300)
-        addex=Button(expmenu,text='Add Income',bg='white',fg='black',font='arialblack 18 bold',relief="solid",command=lambda:mainloop(3)).place(x=500,y=250,height=50,width=300)
-        expense=Button(expmenu,text='Add Expense',bg='white',fg='black',font='arialblack 18 bold',relief="solid",command=lambda:mainloop(4)).place(x=900,y=250,height=50,width=300)
-        balance=Button(expmenu,text='View Expense',bg='white',fg='black',font='arialblack 18 bold',relief="solid",command=lambda:mainloop(5)).place(x=275,y=350,height=50,width=300)
-        curve=Button(expmenu,text='Income-Expense Curve',bg='white',fg='black',font='arialblack 18 bold',relief="solid",command=lambda:mainloop(7)).place(x=675,y=350,height=50,width=300)
-        Button(expmenu,text='LOGOUT',font='arialblack 20 bold',bg='white',fg='black',relief="solid",command=call).place(x=1100,y=40,height=50,width=150)
+        addinc=Button(expmenu,text='Guide',bg='white',fg='black',font=font1,relief="solid",command=lambda:mainloop(6)).place(x=100,y=250,height=50,width=300)
+        addex=Button(expmenu,text='Add Income',bg='white',fg='black',font=font1,relief="solid",command=lambda:mainloop(3)).place(x=500,y=250,height=50,width=300)
+        expense=Button(expmenu,text='Add Expense',bg='white',fg='black',font=font1,relief="solid",command=lambda:mainloop(4)).place(x=900,y=250,height=50,width=300)
+        balance=Button(expmenu,text='View Expense',bg='white',fg='black',font=font1,relief="solid",command=lambda:mainloop(5)).place(x=275,y=350,height=50,width=300)
+        curve=Button(expmenu,text='Income-Expense Curve',bg='white',fg='black',font=font1,relief="solid",command=lambda:mainloop(7)).place(x=675,y=350,height=50,width=300)
+        Button(expmenu,text='LOGOUT',font=font1,bg='white',fg='black',relief="solid",command=call).place(x=1100,y=40,height=50,width=150)
         expmenu.mainloop()
 
     ## add income page
@@ -140,7 +143,7 @@ def mainloop(v):
 
             addinc.destroy()
             mainloop(2)
-        p3=PhotoImage(file ='homeb.png').subsample(3,3)
+        p3=PhotoImage(file =file2).subsample(3,3)
         b=Button(addinc,image=p3,relief=SOLID,command=call)
         b.place(x=1200,y=20)
 
@@ -152,7 +155,7 @@ def mainloop(v):
             am=amount.get()
             el=explim.get()
             if so == "" or am == "" or el == "":
-                messagebox.showinfo("MESSAGE","Please complete the required field!")
+                messagebox.showinfo("MESSAGE",msg)
             k="insert into addincome values('{}',{},{},{})".format(so,am,el,am)
             cursor.execute(k)
             conn.commit()
@@ -160,22 +163,23 @@ def mainloop(v):
             mainloop(2)
 
         ## to create labels    
-
-        exp= Label(addinc, text = "SOURCE:",fg='black',bg='white',font='arialblack 20 bold').place(x=380,y=235)            
+        
+        font1 = 'arialblack 20 bold'
+        Label(addinc, text = "SOURCE:",fg='black',bg='white',font=font1).place(x=380,y=235)            
         source = Entry(addinc)
-        source.configure(fg='black',font='arialblack 20 bold',relief="solid")
+        source.configure(fg='black',font=font1,relief="solid")
         source.place(x=660,y=235,height=40,width=270)
         
-        exp= Label(addinc, text = "AMOUNT:",fg='black',bg='white',font='arialblack 20 bold').place(x=380,y=295)    
+        Label(addinc, text = "AMOUNT:",fg='black',bg='white',font=font1).place(x=380,y=295)    
         amount = Entry(addinc)
-        amount.configure(fg='black',font='arialblack 20 bold',relief="solid")
+        amount.configure(fg='black',font=font1,relief="solid")
         amount.place(x=660,y=295,height=40,width=270)
 
-        exp= Label(addex, text = "EXPENSE LIMIT:",fg='black',bg='white',font='arialblack 20 bold').place(x=380,y=355)            
+        Label(addex, text = "EXPENSE LIMIT:",fg='black',bg='white',font=font1).place(x=380,y=355)            
         explim= Entry(addex)
-        explim.configure(fg='black',font='arialblack 20 bold',relief="solid")
+        explim.configure(fg='black',font=font1,relief="solid")
         explim.place(x=660,y=355,height=40,width=270)
-        update=Button(addinc,text="UPDATE",fg="black",bg="white",font=("times","24","bold"),relief="solid",command=save).place(x=580,y=435)
+        Button(addinc,text="UPDATE",fg="black",bg="white",font=("times","24","bold"),relief="solid",command=save).place(x=580,y=435)
         
         addinc.mainloop()
 
@@ -186,7 +190,7 @@ def mainloop(v):
         expmenu.destroy()
         vinc = Tk()
         vinc.geometry("1300x650+0+0")
-        p1=PhotoImage(file='get3.png')
+        p1=PhotoImage(file=file1)
         Label(vinc,image=p1).place(x=0,y=0)
 
         def addexp(a):
@@ -204,7 +208,7 @@ def mainloop(v):
 
                 addex.destroy()
                 mainloop(2)
-            p3=PhotoImage(file ='homeb.png').subsample(3,3)
+            p3=PhotoImage(file = file2).subsample(3,3)
             Button(addex,image=p3,relief=SOLID,command=call).place(x=1200,y=20)
 
             ## to save the info into the addexpense table
@@ -259,18 +263,18 @@ def mainloop(v):
 
             ## to create labels 
 
-            exp= Label(addex, text = "EXPENSE LIMIT: {}".format(a['values'][1]),bg="#4D99A0",fg='white',font='arialblack 13 bold').place(x=570,y=160)
-            exp= Label(addex, text = "NAME:",fg='black',bg='white',font='arialblack 20 bold').place(x=380,y=235)            
+            Label(addex, text = "EXPENSE LIMIT: {}".format(a['values'][1]),bg="#4D99A0",fg='white',font='arialblack 13 bold').place(x=570,y=160)
+            Label(addex, text = "NAME:",fg='black',bg='white',font='arialblack 20 bold').place(x=380,y=235)            
             name = Entry(addex)
             name.configure(fg='black',font='arialblack 20 bold',relief="solid")
             name.place(x=660,y=235,height=40,width=270)
 
-            exp= Label(addex, text = "PURPOSE:",fg='black',bg='white',font='arialblack 20 bold').place(x=380,y=295)            
+            Label(addex, text = "PURPOSE:",fg='black',bg='white',font='arialblack 20 bold').place(x=380,y=295)            
             purpose = Entry(addex)
             purpose.configure(fg='black',font='arialblack 20 bold',relief="solid")
             purpose.place(x=660,y=295,height=40,width=270)
             
-            exp= Label(addex, text = "AMOUNT:",fg='black',bg='white',font='arialblack 20 bold').place(x=380,y=355)    
+            Label(addex, text = "AMOUNT:",fg='black',bg='white',font='arialblack 20 bold').place(x=380,y=355)    
             amount = Entry(addex)
             amount.configure(fg='black',font='arialblack 20 bold',relief="solid")
             amount.place(x=660,y=355,height=40,width=270)
@@ -283,7 +287,7 @@ def mainloop(v):
 
             vinc.destroy()
             mainloop(2)
-        p3=PhotoImage(file ='homeb.png').subsample(3,3)
+        p3=PhotoImage(file = file2).subsample(3,3)
         Button(vinc,image=p3,relief=SOLID,command=call).place(x=1200,y=20)
         viewtv=ttk.Treeview(height=20,columns=('Source','Amount','Expense limit','Balance'))
 
@@ -352,7 +356,7 @@ def mainloop(v):
         expmenu.destroy()
         vexp = Tk()
         vexp.geometry("1300x650+0+0")
-        p1=PhotoImage(file='get3.png')
+        p1=PhotoImage(file=file1)
         Label(vexp,image=p1).place(x=0,y=0)
         
         ## back button helps you return to the main menu
@@ -361,7 +365,7 @@ def mainloop(v):
 
             vexp.destroy()
             mainloop(2)
-        p3=PhotoImage(file ='homeb.png').subsample(3,3)
+        p3=PhotoImage(file = file2).subsample(3,3)
         Button(vexp,image=p3,relief=SOLID,command=call).place(x=1200,y=20)
 
         viewtv=ttk.Treeview(height=20,columns=('name','source','amount','purpose','date','balance'))
@@ -428,7 +432,7 @@ def mainloop(v):
 
             guide.destroy()
             mainloop(2)
-        p3=PhotoImage(file ='homeb.png').subsample(3,3)
+        p3=PhotoImage(file = file2).subsample(3,3)
         Button(guide,image=p3,relief=SOLID,command=call).place(x=1200,y=20)
         Label(guide, text = "If you want to add the income, which maybe from any source, into your log, simply click the add income \nbutton in the main menu and enter your source of income, the amount of income  and set the \nexpense limit of that particular source as per your desire. If you want to add an expense\n you get the choice of source of income that you wish to deduct money from. After clicking\n the back button, click the add expense button then the source. Then you need to enter the\n name, the purpose and the amount that you've spent. The expense limit will be displayed on the top\n for that particular source. So, if the expense exceeds the limit an error message will be thrown. If\n you want to view the expenses that you've made, click on the view expense button. If you want\n to view the income expense curve of that particular date, click on the button and choose\n the date from the calendar. If the date you've picked has no expenses, then an error\n mesage will be thrown.",bg="#458B98",fg='white',font='arialblack 17').place(x=115,y=250)
         guide.mainloop()
@@ -451,7 +455,7 @@ def mainloop(v):
 
             curve.destroy()
             mainloop(2)
-        p3=PhotoImage(file ='homeb.png').subsample(3,3)
+        p3=PhotoImage(file = file2).subsample(3,3)
         b=Button(curve,image=p3,relief=SOLID,command=call)
         b.place(x=1200,y=20)
             
