@@ -49,7 +49,7 @@ def mainloop(v):
         loginpg.geometry("1300x650+0+0")
         loginpg.resizable(0,0)
         p2=PhotoImage(file='get2.png')
-        l=Label(loginpg,image=p2).place(x=0,y=0)
+        Label(loginpg,image=p2).place(x=0,y=0)
 
         ## back button to go to the front page
         
@@ -59,7 +59,7 @@ def mainloop(v):
             mainloop(10)
 
         p3=PhotoImage(file ='homeb.png').subsample(3,3)
-        l=Button(loginpg,image=p3,relief=SOLID,command=call).place(x=1200,y=20)
+        Button(loginpg,image=p3,relief=SOLID,command=call).place(x=1200,y=20)
 
         ## to check if the user has input the correct name and password, if not, access is denied
         
@@ -103,7 +103,7 @@ def mainloop(v):
         expmenu.geometry("1300x650+0+0")
         expmenu.resizable(0,0)
         p1=PhotoImage(file='get3.png')
-        l=Label(expmenu,image=p1).place(x=0,y=0)
+        Label(expmenu,image=p1).place(x=0,y=0)
 
         ## provides a logout button to go to the introduction page
 
@@ -119,7 +119,7 @@ def mainloop(v):
         expense=Button(expmenu,text='Add Expense',bg='white',fg='black',font='arialblack 18 bold',relief="solid",command=lambda:mainloop(4)).place(x=900,y=250,height=50,width=300)
         balance=Button(expmenu,text='View Expense',bg='white',fg='black',font='arialblack 18 bold',relief="solid",command=lambda:mainloop(5)).place(x=275,y=350,height=50,width=300)
         curve=Button(expmenu,text='Income-Expense Curve',bg='white',fg='black',font='arialblack 18 bold',relief="solid",command=lambda:mainloop(7)).place(x=675,y=350,height=50,width=300)
-        b=Button(expmenu,text='LOGOUT',font='arialblack 20 bold',bg='white',fg='black',relief="solid",command=call).place(x=1100,y=40,height=50,width=150)
+        Button(expmenu,text='LOGOUT',font='arialblack 20 bold',bg='white',fg='black',relief="solid",command=call).place(x=1100,y=40,height=50,width=150)
         expmenu.mainloop()
 
     ## add income page
@@ -187,7 +187,7 @@ def mainloop(v):
         vinc = Tk()
         vinc.geometry("1300x650+0+0")
         p1=PhotoImage(file='get3.png')
-        l=Label(vinc,image=p1).place(x=0,y=0)
+        Label(vinc,image=p1).place(x=0,y=0)
 
         def addexp(a):
 
@@ -196,7 +196,7 @@ def mainloop(v):
             addex.geometry("1300x650+0+0")
             addex.resizable(0,0)
             p1=PhotoImage(file='get5.png')
-            l=Label(addex,image=p1).place(x=0,y=0)
+            Label(addex,image=p1).place(x=0,y=0)
 
             ## back button helps you return to the main menu
 
@@ -205,7 +205,7 @@ def mainloop(v):
                 addex.destroy()
                 mainloop(2)
             p3=PhotoImage(file ='homeb.png').subsample(3,3)
-            l=Button(addex,image=p3,relief=SOLID,command=call).place(x=1200,y=20)
+            Button(addex,image=p3,relief=SOLID,command=call).place(x=1200,y=20)
 
             ## to save the info into the addexpense table
 
@@ -284,7 +284,7 @@ def mainloop(v):
             vinc.destroy()
             mainloop(2)
         p3=PhotoImage(file ='homeb.png').subsample(3,3)
-        l=Button(vinc,image=p3,relief=SOLID,command=call).place(x=1200,y=20)
+        Button(vinc,image=p3,relief=SOLID,command=call).place(x=1200,y=20)
         viewTV=ttk.Treeview(height=20,columns=('Source','Amount','Expense limit','Balance'))
 
         ## to carry the data selected from the add income table to the add expense page 
@@ -342,7 +342,7 @@ def mainloop(v):
         
         ## helps you move to the add expense page using the selected source in income
 
-        nextb=Button(addinc,text="NEXT",fg="black",bg="white",font=("times","24","bold"),relief="solid",command=error).place(x=580,y=435)
+        Button(addinc,text="NEXT",fg="black",bg="white",font=("times","24","bold"),relief="solid",command=error).place(x=580,y=435)
         vinc.mainloop()
 
     ## view expense page
@@ -353,7 +353,7 @@ def mainloop(v):
         vexp = Tk()
         vexp.geometry("1300x650+0+0")
         p1=PhotoImage(file='get3.png')
-        l=Label(vexp,image=p1).place(x=0,y=0)
+        Label(vexp,image=p1).place(x=0,y=0)
         
         ## back button helps you return to the main menu
 
@@ -362,7 +362,7 @@ def mainloop(v):
             vexp.destroy()
             mainloop(2)
         p3=PhotoImage(file ='homeb.png').subsample(3,3)
-        l=Button(vexp,image=p3,relief=SOLID,command=call).place(x=1200,y=20)
+        Button(vexp,image=p3,relief=SOLID,command=call).place(x=1200,y=20)
 
         viewTV=ttk.Treeview(height=20,columns=('name','source','amount','purpose','date','balance'))
 
@@ -420,7 +420,7 @@ def mainloop(v):
         guide= Tk()
         guide.geometry("1300x650+0+0")
         p1=PhotoImage(file='get7.png')
-        l=Label(guide,image=p1).place(x=0,y=0)
+        Label(guide,image=p1).place(x=0,y=0)
         
         ## back button helps you return to the main menu
         
@@ -429,8 +429,8 @@ def mainloop(v):
             guide.destroy()
             mainloop(2)
         p3=PhotoImage(file ='homeb.png').subsample(3,3)
-        l=Button(guide,image=p3,relief=SOLID,command=call).place(x=1200,y=20)
-        ins=Label(guide, text = "If you want to add the income, which maybe from any source, into your log, simply click the add income \nbutton in the main menu and enter your source of income, the amount of income  and set the \nexpense limit of that particular source as per your desire. If you want to add an expense\n you get the choice of source of income that you wish to deduct money from. After clicking\n the back button, click the add expense button then the source. Then you need to enter the\n name, the purpose and the amount that you've spent. The expense limit will be displayed on the top\n for that particular source. So, if the expense exceeds the limit an error message will be thrown. If\n you want to view the expenses that you've made, click on the view expense button. If you want\n to view the income expense curve of that particular date, click on the button and choose\n the date from the calendar. If the date you've picked has no expenses, then an error\n mesage will be thrown.",bg="#458B98",fg='white',font='arialblack 17').place(x=115,y=250)
+        Button(guide,image=p3,relief=SOLID,command=call).place(x=1200,y=20)
+        Label(guide, text = "If you want to add the income, which maybe from any source, into your log, simply click the add income \nbutton in the main menu and enter your source of income, the amount of income  and set the \nexpense limit of that particular source as per your desire. If you want to add an expense\n you get the choice of source of income that you wish to deduct money from. After clicking\n the back button, click the add expense button then the source. Then you need to enter the\n name, the purpose and the amount that you've spent. The expense limit will be displayed on the top\n for that particular source. So, if the expense exceeds the limit an error message will be thrown. If\n you want to view the expenses that you've made, click on the view expense button. If you want\n to view the income expense curve of that particular date, click on the button and choose\n the date from the calendar. If the date you've picked has no expenses, then an error\n mesage will be thrown.",bg="#458B98",fg='white',font='arialblack 17').place(x=115,y=250)
         guide.mainloop()
 
     ## income-expense graph page
@@ -458,7 +458,7 @@ def mainloop(v):
         ## gets data from the view expense table according to the date
  
         def plot(a):
-            b=cursor.execute("select source,min(balance),date from viewexp group by date,source having date='{}'".format(a))
+            cursor.execute("select source,min(balance),date from viewexp group by date,source having date='{}'".format(a))
             data1=cursor.fetchall()
             if (data1==[]):
 
@@ -501,8 +501,8 @@ def mainloop(v):
         cal = DateEntry(curve, width= 16, background= "black", foreground= "white",bd=2)
         cal.pack(pady=230)
 
-        exp= Label(addex, text = "PLEASE SELECT A DATE TO VIEW THE GRAPH!",bg="#4D99A0",fg='white',font='arialblack 20 bold').place(x=345,y=90)
-        dateb=Button(curve, text = "NEXT",fg="black",bg="white",font=("times","15","bold"),relief="solid",command = lambda:plot(cal.get_date())).place(x=610,y=450)
+        Label(addex, text = "PLEASE SELECT A DATE TO VIEW THE GRAPH!",bg="#4D99A0",fg='white',font='arialblack 20 bold').place(x=345,y=90)
+        Button(curve, text = "NEXT",fg="black",bg="white",font=("times","15","bold"),relief="solid",command = lambda:plot(cal.get_date())).place(x=610,y=450)
         curve.mainloop()
 
     ## introduction page           
@@ -514,9 +514,9 @@ def mainloop(v):
         root.geometry("1300x650+0+0")
         root.resizable(0,0)
         p1=PhotoImage(file='get1.png')
-        l=Label(root,image=p1).place(x=0,y=0)
+        label(root,image=p1).place(x=0,y=0)
 
-        lb=Button(root,text='ADMIN LOGIN',bg='white',fg='black',font='arialblack 50 bold',relief="solid",command=lambda:mainloop(1)).place(x=600,y=125)
+        Button(root,text='ADMIN LOGIN',bg='white',fg='black',font='arialblack 50 bold',relief="solid",command=lambda:mainloop(1)).place(x=600,y=125)
         root.mainloop()
  
 mainloop(8)
