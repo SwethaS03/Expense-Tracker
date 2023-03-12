@@ -274,7 +274,7 @@ def mainloop(v):
             amount = Entry(addex)
             amount.configure(fg='black',font='arialblack 20 bold',relief="solid")
             amount.place(x=660,y=355,height=40,width=270)
-            submit=Button(addex,text="SUBMIT",fg="black",bg="white",font=("times","24","bold"),relief="solid",command=lambda:save(a)).place(x=580,y=435)
+            Button(addex,text="SUBMIT",fg="black",bg="white",font=("times","24","bold"),relief="solid",command=lambda:save(a)).place(x=580,y=435)
             addex.mainloop()
 
         ## back button helps you return to the main menu
