@@ -35,6 +35,11 @@ if cursor.fetchone() is None:
 
 ## traverse through all the windows
 
+file2 = 'homeb.png'
+file1 = 'get3.png'
+font1='arialblack 35 bold'
+msg = "Please complete the required field!"
+
 def mainloop(v):
 
     global root,loginpg,vexp,addinc,addex,expense,dl,balance,curve,expmenu
@@ -58,14 +63,13 @@ def mainloop(v):
             loginpg.destroy()
             mainloop(10)
         
-        file2 = 'homeb.png'
         p3=PhotoImage(file = file2).subsample(3,3)
         Button(loginpg,image=p3,relief=SOLID,command=call).place(x=1200,y=20)
 
         ## to check if the user has input the correct name and password, if not, access is denied
         
         def login():
-            msg = "Please complete the required field!"
+           
             if username.get() == "" or password.get() == "":
                 messagebox.showinfo("MESSAGE",msg)
 
@@ -84,7 +88,6 @@ def mainloop(v):
                     
         ## to create labels
         
-        font1='arialblack 35 bold'
         Label(loginpg, text = "USERNAME:",fg='black',bg='white',font=font1).place(x=320,y=250)            
         username = Entry(loginpg)
         username.configure(fg='black',font=font1,relief="solid")
@@ -104,7 +107,6 @@ def mainloop(v):
         expmenu = Tk()
         expmenu.geometry("1300x650+0+0")
         expmenu.resizable(0,0)
-        file1='get3.png'
         p1=PhotoImage(file=file1)
         Label(expmenu,image=p1).place(x=0,y=0)
 
@@ -164,7 +166,6 @@ def mainloop(v):
 
         ## to create labels    
         
-        font1 = 'arialblack 20 bold'
         Label(addinc, text = "SOURCE:",fg='black',bg='white',font=font1).place(x=380,y=235)            
         source = Entry(addinc)
         source.configure(fg='black',font=font1,relief="solid")
@@ -220,7 +221,7 @@ def mainloop(v):
                 am=amount.get()
                 
                 if na == "" or pu == "" or am == "":
-                    messagebox.showinfo("MESSAGE","Please complete the required field!")
+                    messagebox.showinfo("MESSAGE",msg)
 
                 else:
                     
