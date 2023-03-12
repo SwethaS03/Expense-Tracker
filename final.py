@@ -323,9 +323,9 @@ def mainloop(v):
         def displayallinc():
 
             viewTV.place(x=20,y=100,width=1240,height=525)
-            scrollBar3 = Scrollbar(vinc, orient="vertical",command=viewTV.yview)
-            scrollBar3.place(x=1258,y=100,height=525)
-            viewTV.configure(yscrollcommand=scrollBar3.set)
+            scrollbar = Scrollbar(vinc, orient="vertical",command=viewTV.yview)
+            scrollbar.place(x=1258,y=100,height=525)
+            viewTV.configure(yscrollcommand=scrollbar.set)
 
             viewTV.heading('#0',text='SOURCE')
             viewTV.column('#0',minwidth=0,width=312,anchor='center')
@@ -335,7 +335,7 @@ def mainloop(v):
             viewTV.column('#2',minwidth=0,width=312,anchor='center')
             viewTV.heading('#3',text='BALANCE')
             viewTV.column('#3',minwidth=0,width=312,anchor='center')
-            exp= Label(addex, text = "PLEASE SELECT A SOURCE FIELD TO ADD EXPENSE!",bg="#4D99A0",fg='white',font='arialblack 15 bold').place(x=400,y=40)
+            Label(addex, text = "PLEASE SELECT A SOURCE FIELD TO ADD EXPENSE!",bg="#4D99A0",fg='white',font='arialblack 15 bold').place(x=400,y=40)
 
             getallinc()
         displayallinc()
@@ -391,9 +391,9 @@ def mainloop(v):
         def displayallexp():
 
             viewTV.place(x=20,y=100,width=1240,height=525)
-            scrollBar3 = Scrollbar(vexp, orient="vertical",command=viewTV.yview)
-            scrollBar3.place(x=1258,y=100,height=525)
-            viewTV.configure(yscrollcommand=scrollBar3.set)
+            scrollbar = Scrollbar(vexp, orient="vertical",command=viewTV.yview)
+            scrollbar.place(x=1258,y=100,height=525)
+            viewTV.configure(yscrollcommand=scrollbar.set)
 
             viewTV.heading('#0',text='NAME')
             viewTV.column('#0',minwidth=0,width=208,anchor='center')
