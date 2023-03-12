@@ -285,16 +285,16 @@ def mainloop(v):
             mainloop(2)
         p3=PhotoImage(file ='homeb.png').subsample(3,3)
         Button(vinc,image=p3,relief=SOLID,command=call).place(x=1200,y=20)
-        viewTV=ttk.Treeview(height=20,columns=('Source','Amount','Expense limit','Balance'))
+        viewtv=ttk.Treeview(height=20,columns=('Source','Amount','Expense limit','Balance'))
 
         ## to carry the data selected from the add income table to the add expense page 
 
         def error():
 
-            curItem = viewTV.focus()
+            curitem = viewtv.focus()
 
-            if (curItem):
-                addexp(viewTV.item(curItem))
+            if (curitem):
+                addexp(viewtv.item(curItem))
 
             else:
                 messagebox.showinfo("MESSAGE","Please select the source field to continue!")
@@ -303,9 +303,9 @@ def mainloop(v):
 
         def getallinc():
 
-            records=viewTV.get_children()
+            records=viewtv.get_children()
             for j in records:
-                viewTV.delete(j)
+                viewtv.delete(j)
                 
             conn=mysql.connector.connect(host='localhost',user='root',passwd='1234',db='expense',charset='utf8')
             cursor=conn.cursor(dictionary=True)
@@ -315,26 +315,26 @@ def mainloop(v):
             data=cursor.fetchall()
                 
             for i in data:
-                viewTV.insert('','end',text=i['source'],values=(i['iamount'],i['explimit'],i['balance']))
+                viewtv.insert('','end',text=i['source'],values=(i['iamount'],i['explimit'],i['balance']))
             conn.close()        
 
         ## to display the info to the user using treeview
 
         def displayallinc():
 
-            viewTV.place(x=20,y=100,width=1240,height=525)
-            scrollbar = Scrollbar(vinc, orient="vertical",command=viewTV.yview)
+            viewtv.place(x=20,y=100,width=1240,height=525)
+            scrollbar = Scrollbar(vinc, orient="vertical",command=viewtv.yview)
             scrollbar.place(x=1258,y=100,height=525)
-            viewTV.configure(yscrollcommand=scrollbar.set)
+            viewtv.configure(yscrollcommand=scrollbar.set)
 
-            viewTV.heading('#0',text='SOURCE')
-            viewTV.column('#0',minwidth=0,width=312,anchor='center')
-            viewTV.heading('#1',text="AMOUNT")
-            viewTV.column('#1', minwidth=0, width=312,anchor='center')
-            viewTV.heading('#2',text='EXPENSE LIMIT')
-            viewTV.column('#2',minwidth=0,width=312,anchor='center')
-            viewTV.heading('#3',text='BALANCE')
-            viewTV.column('#3',minwidth=0,width=312,anchor='center')
+            viewtv.heading('#0',text='SOURCE')
+            viewtv.column('#0',minwidth=0,width=312,anchor='center')
+            viewtv.heading('#1',text="AMOUNT")
+            viewtv.column('#1', minwidth=0, width=312,anchor='center')
+            viewtv.heading('#2',text='EXPENSE LIMIT')
+            viewtv.column('#2',minwidth=0,width=312,anchor='center')
+            viewtv.heading('#3',text='BALANCE')
+            viewtv.column('#3',minwidth=0,width=312,anchor='center')
             Label(addex, text = "PLEASE SELECT A SOURCE FIELD TO ADD EXPENSE!",bg="#4D99A0",fg='white',font='arialblack 15 bold').place(x=400,y=40)
 
             getallinc()
@@ -364,16 +364,16 @@ def mainloop(v):
         p3=PhotoImage(file ='homeb.png').subsample(3,3)
         Button(vexp,image=p3,relief=SOLID,command=call).place(x=1200,y=20)
 
-        viewTV=ttk.Treeview(height=20,columns=('name','source','amount','purpose','date','balance'))
+        viewtv=ttk.Treeview(height=20,columns=('name','source','amount','purpose','date','balance'))
 
         ## getting the info from addexpense table
 
         def getallexp():
 
-            records=viewTV.get_children()
+            records=viewtv.get_children()
             
             for j in records:
-                viewTV.delete(j)
+                viewtv.delete(j)
                 
             conn=mysql.connector.connect(host='localhost',user='root',passwd='1234',db='expense',charset='utf8')
             cursor=conn.cursor(dictionary=True)
@@ -383,30 +383,30 @@ def mainloop(v):
             data=cursor.fetchall()
                 
             for i in data:
-                viewTV.insert('','end',text=i['name'],values=(i['source'],i['amount'],i['purpose'],i['date'],i['balance']))
+                viewtv.insert('','end',text=i['name'],values=(i['source'],i['amount'],i['purpose'],i['date'],i['balance']))
             conn.close()        
 
         ## to display the info to the user using treeview
 
         def displayallexp():
 
-            viewTV.place(x=20,y=100,width=1240,height=525)
-            scrollbar = Scrollbar(vexp, orient="vertical",command=viewTV.yview)
+            viewtv.place(x=20,y=100,width=1240,height=525)
+            scrollbar = Scrollbar(vexp, orient="vertical",command=viewtv.yview)
             scrollbar.place(x=1258,y=100,height=525)
-            viewTV.configure(yscrollcommand=scrollbar.set)
+            viewtv.configure(yscrollcommand=scrollbar.set)
 
-            viewTV.heading('#0',text='NAME')
-            viewTV.column('#0',minwidth=0,width=208,anchor='center')
-            viewTV.heading('#1',text='SOURCE')
-            viewTV.column('#1',minwidth=0,width=208,anchor='center')
-            viewTV.heading('#2',text="AMOUNT")
-            viewTV.column('#2', minwidth=0, width=208,anchor='center')
-            viewTV.heading('#3',text='PURPOSE')
-            viewTV.column('#3',minwidth=0,width=208,anchor='center')
-            viewTV.heading('#4',text='DATE')
-            viewTV.column('#4',minwidth=0,width=208,anchor='center')
-            viewTV.heading('#5',text='BALANCE')
-            viewTV.column('#5',minwidth=0,width=208,anchor='center')
+            viewtv.heading('#0',text='NAME')
+            viewtv.column('#0',minwidth=0,width=208,anchor='center')
+            viewtv.heading('#1',text='SOURCE')
+            viewtv.column('#1',minwidth=0,width=208,anchor='center')
+            viewtv.heading('#2',text="AMOUNT")
+            viewtv.column('#2', minwidth=0, width=208,anchor='center')
+            viewtv.heading('#3',text='PURPOSE')
+            viewtv.column('#3',minwidth=0,width=208,anchor='center')
+            viewtv.heading('#4',text='DATE')
+            viewtv.column('#4',minwidth=0,width=208,anchor='center')
+            viewtv.heading('#5',text='BALANCE')
+            viewtv.column('#5',minwidth=0,width=208,anchor='center')
             getallexp()
 
         displayallexp()
