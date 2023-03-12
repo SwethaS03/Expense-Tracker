@@ -38,6 +38,8 @@ if cursor.fetchone() is None:
 file2 = 'homeb.png'
 file1 = 'get3.png'
 font1='arialblack 35 bold'
+font2 = 'arialblack 20 bold'
+geo='1300x650+0+0'
 msg = "Please complete the required field!"
 
 def mainloop(v):
@@ -51,7 +53,7 @@ def mainloop(v):
         root.destroy()
         loginpg = Tk()
         loginpg.title("EXPENSE TRACKER")
-        loginpg.geometry("1300x650+0+0")
+        loginpg.geometry(geo)
         loginpg.resizable(0,0)
         p2=PhotoImage(file='get2.png')
         Label(loginpg,image=p2).place(x=0,y=0)
@@ -105,7 +107,7 @@ def mainloop(v):
     elif v==2:
 
         expmenu = Tk()
-        expmenu.geometry("1300x650+0+0")
+        expmenu.geometry(geo)
         expmenu.resizable(0,0)
         p1=PhotoImage(file=file1)
         Label(expmenu,image=p1).place(x=0,y=0)
@@ -133,7 +135,7 @@ def mainloop(v):
 
         expmenu.destroy()
         addinc=Tk()
-        addinc.geometry("1300x650+0+0")
+        addinc.geometry(geo)
         addinc.resizable(0,0)
         p1=PhotoImage(file='get4.png')
         l=Label(addinc,image=p1)
@@ -190,7 +192,7 @@ def mainloop(v):
         
         expmenu.destroy()
         vinc = Tk()
-        vinc.geometry("1300x650+0+0")
+        vinc.geometry(geo)
         p1=PhotoImage(file=file1)
         Label(vinc,image=p1).place(x=0,y=0)
 
@@ -198,7 +200,7 @@ def mainloop(v):
 
             vinc.destroy()
             addex=Tk()
-            addex.geometry("1300x650+0+0")
+            addex.geometry(geo)
             addex.resizable(0,0)
             p1=PhotoImage(file='get5.png')
             Label(addex,image=p1).place(x=0,y=0)
@@ -265,19 +267,19 @@ def mainloop(v):
             ## to create labels 
 
             Label(addex, text = "EXPENSE LIMIT: {}".format(a['values'][1]),bg="#4D99A0",fg='white',font='arialblack 13 bold').place(x=570,y=160)
-            Label(addex, text = "NAME:",fg='black',bg='white',font='arialblack 20 bold').place(x=380,y=235)            
+            Label(addex, text = "NAME:",fg='black',bg='white',font=font2).place(x=380,y=235)            
             name = Entry(addex)
-            name.configure(fg='black',font='arialblack 20 bold',relief="solid")
+            name.configure(fg='black',font=font2,relief="solid")
             name.place(x=660,y=235,height=40,width=270)
 
-            Label(addex, text = "PURPOSE:",fg='black',bg='white',font='arialblack 20 bold').place(x=380,y=295)            
+            Label(addex, text = "PURPOSE:",fg='black',bg='white',font=font2).place(x=380,y=295)            
             purpose = Entry(addex)
-            purpose.configure(fg='black',font='arialblack 20 bold',relief="solid")
+            purpose.configure(fg='black',font=font2,relief="solid")
             purpose.place(x=660,y=295,height=40,width=270)
             
-            Label(addex, text = "AMOUNT:",fg='black',bg='white',font='arialblack 20 bold').place(x=380,y=355)    
+            Label(addex, text = "AMOUNT:",fg='black',bg='white',font=font2).place(x=380,y=355)    
             amount = Entry(addex)
-            amount.configure(fg='black',font='arialblack 20 bold',relief="solid")
+            amount.configure(fg='black',font=font2,relief="solid")
             amount.place(x=660,y=355,height=40,width=270)
             Button(addex,text="SUBMIT",fg="black",bg="white",font=("times","24","bold"),relief="solid",command=lambda:save(a)).place(x=580,y=435)
             addex.mainloop()
@@ -356,7 +358,7 @@ def mainloop(v):
 
         expmenu.destroy()
         vexp = Tk()
-        vexp.geometry("1300x650+0+0")
+        vexp.geometry(geo)
         p1=PhotoImage(file=file1)
         Label(vexp,image=p1).place(x=0,y=0)
         
@@ -423,7 +425,7 @@ def mainloop(v):
 
         expmenu.destroy()
         guide= Tk()
-        guide.geometry("1300x650+0+0")
+        guide.geometry(geo)
         p1=PhotoImage(file='get7.png')
         Label(guide,image=p1).place(x=0,y=0)
         
@@ -444,7 +446,7 @@ def mainloop(v):
 
         expmenu.destroy()
         curve=Tk()
-        curve.geometry("1300x650+0+0")
+        curve.geometry(geo)
         curve.resizable(0,0)
         p1=PhotoImage(file='get6.png')
         l=Label(curve,image=p1)
@@ -516,7 +518,7 @@ def mainloop(v):
 
         root = Tk()
         root.title("EXPENSE TRACKER")
-        root.geometry("1300x650+0+0")
+        root.geometry(geo)
         root.resizable(0,0)
         p1=PhotoImage(file='get1.png')
         label(root,image=p1).place(x=0,y=0)
